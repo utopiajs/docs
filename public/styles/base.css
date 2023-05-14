@@ -1,0 +1,4 @@
+body {
+  color: var(--astro-c-text-1);
+  background-color: var(--astro-c-bg);
+}

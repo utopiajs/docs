@@ -66,6 +66,9 @@
       );
     };
 
+    // initialize appearance
+    setClass(isDark)
+
     return { isDark, toggle };
   }
 
@@ -106,7 +109,7 @@
     transition: background-color 0.25s, transform 0.25s;
   }
 
-  .dark .astro-switch-check {
+  :global(.dark) .astro-switch-check {
     background-color: var(--astro-c-black);
   }
 
@@ -128,7 +131,7 @@
     fill: var(--astro-c-text-2);
   }
 
-  .dark .astro-switch-icon svg {
+  :global(.dark) .astro-switch-icon svg {
     fill: var(--astro-c-text-1);
     transition: opacity 0.25s;
   }
@@ -139,14 +142,14 @@
     opacity: 0;
   }
 
-  .dark .astro-switch-appearance-sun {
+  :global(.dark) .astro-switch-appearance-sun {
     opacity: 0;
   }
-  .dark .astro-switch-appearance-moon {
+  :global(.dark) .astro-switch-appearance-moon {
     opacity: 1;
   }
 
-  .dark .astro-switch-appearance .astro-switch-check {
+  :global(.dark) .astro-switch-appearance .astro-switch-check {
     transform: translateX(18px);
   }
 </style>

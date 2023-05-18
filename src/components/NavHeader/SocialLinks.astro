@@ -1,0 +1,48 @@
+---
+import AstroIconGithub from '../../icons/AstroIconGithub.astro';
+
+const socialLinks = [
+  {
+    icon: 'github',
+    link: 'https://github.com/utopiajs/',
+  },
+];
+
+const icons = {
+  github: AstroIconGithub,
+};
+---
+
+{
+  socialLinks.map((item) => {
+    const { icon, link } = item;
+    const IconComponent = icons[icon];
+    return (
+      <a class="astro-social-link" rel="noopener noreferrer" href={link} target="_blank">
+        <component class="astro-social-link-icon">
+          <IconComponent />
+        </component>
+      </a>
+    );
+  })
+}
+
+<style>
+  .astro-social-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    color: var(--astro-c-text-2);
+  }
+  .astro-social-link .astro-social-link-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+  .astro-social-link:hover {
+    color: var(--astro-c-text-1);
+    transition: color 0.2s;
+  }
+</style>

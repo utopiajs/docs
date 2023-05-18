@@ -1,5 +1,6 @@
 ---
 import NavAppearance from './NavAppearance.astro';
+import SocialLinks from './SocialLinks.astro';
 ---
 
 <header class="header">
@@ -10,9 +11,10 @@ import NavAppearance from './NavAppearance.astro';
     </a>
     <div class="content">
       <div class="appearance">
-        <NavAppearance>
-          
-        </NavAppearance>
+        <NavAppearance />
+      </div>
+      <div class="social-links">
+        <SocialLinks />
       </div>
     </div>
   </div>
@@ -57,5 +59,9 @@ import NavAppearance from './NavAppearance.astro';
     align-items: center;
     justify-content: flex-end;
     flex-grow: 1;
+  }
+  .social-links {
+    display: flex;
+    margin-left: 12px;
   }
 </style>

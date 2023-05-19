@@ -1,0 +1,31 @@
+---
+import BaseLayout from './BaseLayout.astro'
+---
+
+<BaseLayout>
+  <div class="container">
+    <div class="content-docs">
+      <slot />
+    </div>
+    <aside>
+      aside
+    </aside>
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    display: flex;
+  }
+  .content-docs {
+    flex: 1
+  }
+  .right-sidebar {
+    position: sticky;
+    top: 80px;
+    bottom: 0;
+    width: 200px;
+    height: fit-content;
+    padding-left: 96px;
+  }
+</style>

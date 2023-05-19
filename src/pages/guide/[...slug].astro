@@ -1,0 +1,18 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import { allGuidePages } from '~/content';
+
+export const prerender = true;
+export async function getStaticPaths() {
+	return allGuidePages.map((page) => {
+		const slug = page.slug;
+		return { params: {  slug }, props: page };
+	});
+}
+
+
+const { data, render } = Astro.props;
+const { Content, headings } = await render();
+---
+
+<BlogLayout title={data.title} {...{ data, headings }}><Content /></BlogLayout>

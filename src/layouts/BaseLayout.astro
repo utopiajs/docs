@@ -10,6 +10,13 @@ const { title } = Astro.props;
     <HeadCommon />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <style>
+      .layout {
+        max-width: 1360px;
+        margin: 0 auto;
+        padding-top: 75px;
+      }
+    </style>
   </head>
   <body>
     <NavHeader />
@@ -18,11 +25,54 @@ const { title } = Astro.props;
         <slot />
       </div>
     </main>
-  </body><style>
-    .layout {
-      max-width: 1360px;
-      margin: 0 auto;
-      padding-top: 75px;
-    }
-  </style>
+    <script>
+      function scrollTo(el: Element, hash: string, smooth = false) {
+        let target: Element | null = null;
+        try {
+          target = el.classList.contains('header-anchor') ? el : document.querySelector(decodeURIComponent(hash));
+        } catch (error) {
+          console.warn(error);
+        }
+
+        if (target) {
+          let offset: number = 90;
+
+          const targetPadding = parseInt(window.getComputedStyle(target).paddingTop, 10);
+          const targetTop = window.scrollY + target.getBoundingClientRect().top - offset + targetPadding;
+
+          if (!smooth || Math.abs(targetTop - window.scrollY) > window.innerHeight) {
+            window.scrollTo(0, targetTop);
+          } else {
+            window.scrollTo({
+              left: 0,
+              top: targetTop,
+              behavior: 'smooth',
+            });
+          }
+        }
+      }
+      window.addEventListener('click', (e: MouseEvent) => {
+        // anchor 处理
+        const link = (e.target as Element).closest('a');
+        const isHeadAnchor = link?.classList.contains('header-anchor');
+        const isTocHeader = link?.classList.contains('toc-header-link');
+
+        if ((isHeadAnchor || isTocHeader) && link) {
+          const { pathname, hash, search } = new URL(link.href, link.baseURI);
+          const currentUrl = window.location;
+          e.preventDefault();
+
+          if (pathname == currentUrl.pathname && search === currentUrl.search) {
+            if (hash) {
+              if (hash !== currentUrl.hash) {
+                history.pushState(null, '', hash);
+              }
+
+              scrollTo(link, hash, link.classList.contains('header-anchor'));
+            }
+          }
+        }
+      });
+    </script>
+  </body>
 </html>

@@ -269,3 +269,31 @@
     margin: 0 calc((100vw - 463px) / 2) 18px;
   }
 }
+
+/* astro */
+.astro-docs .heading-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: baseline;
+}
+
+.astro-docs .heading-wrapper h2 {
+  flex: 1;
+  border-top: 1px solid var(--astro-c-divider-light);
+}
+.heading-wrapper:hover .header-anchor {
+  opacity: 1;
+}
+.astro-docs .level-h1 {
+  font-size: 38px;
+}
+.astro-docs .level-h2 {
+  font-size: 24px;
+}
+.astro-docs .level-h3 {
+  font-size: 19px;
+}
+.astro-docs .level-h4 {
+  font-size: 17px;
+}

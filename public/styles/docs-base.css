@@ -1,0 +1,271 @@
+.astro-docs {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.astro-docs h1,
+.astro-docs h2,
+.astro-docs h3,
+.astro-docs h4,
+.astro-docs h5,
+.astro-docs h6 {
+  position: relative;
+  font-weight: 600;
+  line-height: 1.5;
+  outline: none;
+}
+
+.astro-docs h1 {
+  margin: 0 0 3rem;
+  font-size: 38px;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+}
+
+.astro-docs h2 {
+  margin: 4rem 0 1.8rem;
+  border-top: 1px solid var(--astro-c-divider-light);
+  padding-top: 1.8rem;
+  font-size: 24px;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 768px) {
+  .astro-docs h1 {
+    font-size: 32px;
+    margin-bottom: 1.8rem;
+  }
+  .astro-docs h1 + h2 {
+    margin-top: 36px;
+  }
+}
+
+.astro-docs h3 {
+  font-size: 19px;
+  letter-spacing: -0.01em;
+  margin: 3rem 0 1.25rem;
+}
+
+.astro-docs h2 + h3 {
+  margin-top: 0;
+}
+
+.astro-docs h4 {
+  font-size: 17px;
+  margin: 1.8rem 0 1rem;
+}
+
+.astro-docs .header-anchor {
+  float: left;
+  margin-left: -0.87em;
+  padding-right: 0.23em;
+  font-weight: 500;
+  opacity: 0;
+  transition: color 0.25s, opacity 0.25s;
+}
+
+.astro-docs .header-anchor:before {
+  content: '#';
+}
+
+.astro-docs h1:hover .header-anchor,
+.astro-docs h1 .header-anchor:focus,
+.astro-docs h2:hover .header-anchor,
+.astro-docs h2 .header-anchor:focus,
+.astro-docs h3:hover .header-anchor,
+.astro-docs h3 .header-anchor:focus,
+.astro-docs h4:hover .header-anchor,
+.astro-docs h4 .header-anchor:focus,
+.astro-docs h5:hover .header-anchor,
+.astro-docs h5 .header-anchor:focus,
+.astro-docs h6:hover .header-anchor,
+.astro-docs h6 .header-anchor:focus {
+  opacity: 1;
+}
+
+.astro-docs hr {
+  border: none;
+  border-top: 1px solid var(--astro-c-divider-light);
+  margin: 1.8rem 0;
+}
+
+.astro-docs p,
+.astro-docs ul,
+.astro-docs ol,
+.astro-docs summary {
+  margin-bottom: 1.2em;
+}
+
+.astro-docs a {
+  font-weight: 500;
+  color: var(--astro-c-brand);
+  transition: color 0.25s;
+  text-decoration-style: dotted;
+}
+
+.astro-docs a:hover {
+  color: var(--astro-c-brand-highlight);
+}
+
+.astro-docs strong {
+  font-weight: 600;
+}
+
+.astro-docs table {
+  display: block;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  overflow-x: auto;
+}
+
+.astro-docs tr {
+  border-top: 1px solid var(--astro-c-divider);
+  transition: background-color 0.5s;
+}
+
+.astro-docs tr:nth-child(2n) {
+  background-color: var(--astro-c-bg-soft);
+}
+
+.astro-docs th,
+.astro-docs td {
+  border: 1px solid var(--astro-c-divider);
+  padding: 0.6em 1em;
+}
+
+.astro-docs blockquote {
+  margin: 1rem 0;
+  border-left: 0.2rem solid var(--astro-c-divider);
+  padding-left: 1rem;
+  transition: border-color 0.5s;
+}
+
+.astro-docs blockquote > p {
+  margin: 0;
+  font-size: 16px;
+  color: var(--astro-c-text-2);
+  transition: color 0.5s;
+}
+
+.astro-docs figure {
+  margin: 0;
+}
+
+.astro-docs img {
+  max-width: 100%;
+}
+
+.astro-docs p > img {
+  margin: 28px auto;
+}
+
+.astro-docs ol {
+  counter-reset: item;
+}
+.astro-docs ol[start='2'] {
+  counter-reset: item 1;
+}
+.astro-docs ol[start='3'] {
+  counter-reset: item 2;
+}
+.astro-docs ol[start='4'] {
+  counter-reset: item 3;
+}
+.astro-docs ol[start='5'] {
+  counter-reset: item 4;
+}
+.astro-docs ol[start='6'] {
+  counter-reset: item 5;
+}
+.astro-docs ol[start='7'] {
+  counter-reset: item 6;
+}
+.astro-docs ol[start='8'] {
+  counter-reset: item 7;
+}
+.astro-docs ol[start='9'] {
+  counter-reset: item 8;
+}
+.astro-docs ol[start='10'] {
+  counter-reset: item 9;
+}
+
+.astro-docs ol > li {
+  counter-increment: item;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.astro-docs ol > li:before {
+  position: absolute;
+  left: 2px;
+  top: 1px;
+  font-weight: bold;
+  font-size: 14px;
+  color: var(--astro-c-text-3);
+  content: counter(item) '.';
+}
+
+@media (min-width: 768px) {
+  .astro-docs ol > li:before {
+    top: 2px;
+  }
+}
+
+.astro-docs li {
+  position: relative;
+  margin: 1px 0;
+}
+
+.astro-docs ul {
+  padding-left: 1.25rem;
+}
+
+.astro-docs ul > li:before {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--astro-c-text-3);
+  transition: background-color 0.5s;
+  left: -1.25rem;
+  top: 0.75rem;
+}
+
+.astro-docs .video::before {
+  display: block;
+  content: '';
+  padding-top: 56.25%;
+}
+
+.astro-docs .video {
+  overflow: hidden;
+  width: calc(100% + 48px);
+  min-width: 415px;
+  position: relative;
+  margin: 0 -24px 18px;
+}
+
+.astro-docs .video-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (min-width: 640px) {
+  .astro-docs .video {
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 463px) {
+  .astro-docs .video {
+    width: 100%;
+    margin: 0 calc((100vw - 463px) / 2) 18px;
+  }
+}

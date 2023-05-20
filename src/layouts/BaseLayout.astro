@@ -1,6 +1,6 @@
 ---
 import NavHeader from '../components/NavHeader/index.astro';
-import HeadCommon from '../components/HeadCommon/index.astro'
+import HeadCommon from '../components/HeadCommon/index.astro';
 const { title } = Astro.props;
 ---
 
@@ -13,14 +13,16 @@ const { title } = Astro.props;
   </head>
   <body>
     <NavHeader />
-    <main class="main-content">
-      <slot />
+    <main class="layout">
+      <div class="main-content">
+        <slot />
+      </div>
     </main>
-  </body>
+  </body><style>
+    .layout {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding-top: 75px;
+    }
+  </style>
 </html>
-
-<style>
-  .main-content {
-    padding-top: 55px;
-  }
-</style>

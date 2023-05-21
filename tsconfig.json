@@ -1,8 +1,10 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "allowJs": true,
     "noImplicitAny": false,
     "baseUrl": ".",
+    "jsx": "react-jsx",
     "forceConsistentCasingInFileNames": false,
     "paths": {
       "~/*": ["src/*"]

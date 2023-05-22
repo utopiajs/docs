@@ -14,7 +14,9 @@
     "astro": "^2.4.1",
     "astro-auto-import": "^0.3.0",
     "hastscript": "^7.2.0",
+    "html-escaper": "^3.0.3",
     "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.1.0"
   }

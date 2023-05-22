@@ -13,9 +13,15 @@ dependencies:
   hastscript:
     specifier: ^7.2.0
     version: registry.npmmirror.com/hastscript@7.2.0
+  html-escaper:
+    specifier: ^3.0.3
+    version: registry.npmmirror.com/html-escaper@3.0.3
   react:
     specifier: ^18.2.0
     version: registry.npmmirror.com/react@18.2.0
+  react-dom:
+    specifier: ^18.2.0
+    version: registry.npmmirror.com/react-dom@18.2.0(react@18.2.0)
   rehype-autolink-headings:
     specifier: ^6.1.1
     version: registry.npmmirror.com/rehype-autolink-headings@6.1.1

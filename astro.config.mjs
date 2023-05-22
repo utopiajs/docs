@@ -9,7 +9,6 @@ import react from '@astrojs/react';
 export default defineConfig({
   integrations: [react()],
   markdown: {
-    syntaxHighlight: 'prism',
     rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, autolinkConfig]],
   },
 });

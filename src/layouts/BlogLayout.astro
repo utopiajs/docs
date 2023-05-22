@@ -1,5 +1,8 @@
 ---
-import BaseLayout from './BaseLayout.astro'
+import BaseLayout from './BaseLayout.astro';
+import RightSidebar from '../components/RightSidebar/index.astro';
+
+const { content, headings } = Astro.props;
 ---
 
 <BaseLayout>
@@ -7,8 +10,8 @@ import BaseLayout from './BaseLayout.astro'
     <div class="astro-docs">
       <slot />
     </div>
-    <aside>
-      aside
+    <aside class="right-sidebar">
+      <RightSidebar {...{ content, headings }} />
     </aside>
   </div>
 </BaseLayout>
@@ -18,7 +21,7 @@ import BaseLayout from './BaseLayout.astro'
     display: flex;
   }
   .astro-docs {
-    flex: 1
+    flex: 1;
   }
   .right-sidebar {
     position: sticky;

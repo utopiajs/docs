@@ -2,10 +2,10 @@
 import BaseLayout from './BaseLayout.astro';
 import RightSidebar from '../components/RightSidebar/index.astro';
 
-const { content, headings } = Astro.props;
+const { content, headings, title } = Astro.props;
 ---
 
-<BaseLayout>
+<BaseLayout title={title}>
   <div class="container">
     <div class="astro-docs">
       <slot />

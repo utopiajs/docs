@@ -14,8 +14,8 @@ interface IProps {
 
 const TableOfContents = ({ toc = [], labels }: IProps): FC => {
   const [currentHeading, setCurrentHeading] = useState({
-    slug: toc[0].slug,
-    text: toc[0].text,
+    slug: toc[0]?.slug,
+    text: toc[0]?.text,
   });
   const containerRef = useRef(null);
   const markerRef = useRef(null);

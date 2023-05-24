@@ -4,7 +4,9 @@
   margin: 0;
   padding: 20px 0;
   background-color: transparent;
-  border-radius: 8px;
+}
+.dark .astro-docs [class*='language-'] pre {
+  background-color: var(--astro-c-bg-soft) !important
 }
 
 .astro-docs [class*='language-'] code {

@@ -58,7 +58,13 @@
   --astro-c-purple-light: #e936eb;
   --astro-c-purple-lighter: #f616f8;
   --astro-c-purple-dark: #823c83;
-  --astro-c-purple-darker: #602960
+  --astro-c-purple-darker: #602960;
+  --astro-code-line-height: 1.7;
+  --astro-code-font-size: 0.875rem;
+  --astro-block-color: var(--astro-c-text-dark-1);
+  --astro-font-family-mono: Menlo, Monaco, Consolas, "Courier New", monospace;
+  --astro-icon-copy: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' height='20' width='20' stroke='rgba(128,128,128,1)' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2'/%3E%3C/svg%3E");
+  --astro-icon-copied: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' height='20' width='20' stroke='rgba(128,128,128,1)' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2m-6 9 2 2 4-4'/%3E%3C/svg%3E");
 }
 
 :root {
@@ -101,5 +107,6 @@
   --astro-c-text-inverse-2: var(--astro-c-text-light-2);
   --astro-c-text-inverse-3: var(--astro-c-text-light-3);
   --astro-c-text-inverse-4: var(--astro-c-text-light-4);
-  --astro-c-brand-highlight: var(--astro-c-brand-light)
+  --astro-c-brand-highlight: var(--astro-c-brand-light);
+  --astro-block-color: var(--astro-c-text-1);
 }

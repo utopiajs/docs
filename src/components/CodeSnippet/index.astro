@@ -1,0 +1,112 @@
+---
+import getCodeSnippetValue from '../../utils/getCodeSnippetValue';
+
+const codeSnippetHtml = await Astro.slots.render('default');
+const { lang } = Astro.props;
+---
+
+<div class={`[language-${lang}]`}>
+  <button class="copy" value={getCodeSnippetValue(codeSnippetHtml)}></button>
+  <span class="lang">{lang}</span>
+  <Fragment set:html={codeSnippetHtml} />
+</div>
+
+<script>
+  // Find all buttons with the \`copy-button\` class on page.
+  const buttons = document.querySelectorAll<HTMLButtonElement>('button.copy');
+
+  /** Store timeout to clear when button is repeatedly clicked. */
+  let copyTimeout: any;
+
+  // Handle clicks on each button.
+  buttons.forEach((button) => {
+    button.addEventListener('click', async () => {
+      const codeText = decodeURIComponent(button.value);
+      try {
+        clearTimeout(copyTimeout);
+        await navigator.clipboard.writeText(codeText);
+        button.classList.add('copied');
+        copyTimeout = setTimeout(() => {
+          button.classList.remove('copied');
+        }, 3000);
+      } catch (err) {
+        clearTimeout(copyTimeout);
+        button.classList.add('copy-error');
+        copyTimeout = setTimeout(() => {
+          button.classList.remove('copy-error');
+        }, 3000);
+      }
+    });
+  });
+</script>
+
+<style>
+  div[class*='language'] {
+    position: inherit;
+    margin: 28px 0;
+  }
+  div[class*='language']:hover .copy {
+    opacity: 1;
+  }
+  div[class*='language-'] + div[class*='language-'] {
+    margin-top: -16px;
+  }
+
+  .copy {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    z-index: 3;
+    display: block;
+    justify-content: center;
+    border-radius: 4px;
+    width: 40px;
+    height: 40px;
+    background-color: #282a36;
+    opacity: 0;
+    cursor: pointer;
+    background-image: var(--astro-icon-copy);
+    background-position: 50%;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    transition: opacity: 0.4;
+  }
+  .copy:hover {
+    background-color: #343848;
+  }
+  .copied {
+    border-radius: 0 4px 4px 0;
+    background-color: #343848;
+    background-image: var(--astro-icon-copied);
+  }
+  .copied::before {
+    position: relative;
+    top: 0;
+    left: -65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 0;
+    border-radius: 4px 0 0 4px;
+    width: 64px;
+    height: 40px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--astro-c-text-dark-3);
+    background-color: #343848;
+    white-space: nowrap;
+    content: 'Copied';
+  }
+
+  span.lang {
+    position: absolute;
+    top: 4px;
+    right: 10px;
+    z-index: 2;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--astro-c-text-dark-3);
+    transition: color 0.5s;
+  }
+</style>

@@ -42,8 +42,9 @@ const { lang } = Astro.props;
 
 <style>
   div[class*='language'] {
-    position: inherit;
+    position: relative;
     margin: 28px 0;
+    overflow-x: auto;
   }
   div[class*='language']:hover .copy {
     opacity: 1;

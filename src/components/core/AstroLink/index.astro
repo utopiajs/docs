@@ -3,7 +3,12 @@ const { href, active } = Astro.props;
 const isExternal = href && /^[a-z]+:/i.test(href);
 ---
 
-<a class={`astro-link ${isExternal ? 'active' : ''}`} href={href} target={isExternal ? 'noopener noreferrer' : undefined}>
+<a
+  class={`astro-link ${active ? 'active' : ''}`}
+  href={href}
+  target={isExternal ? '_blank' : undefined}
+  rel={isExternal ? 'noopener noreferrer' : undefined}
+>
   <slot />
 </a>
 

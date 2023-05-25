@@ -10,7 +10,7 @@ export function isActive(
   if (matchPath === undefined) {
     return false
   }
-  currentPath = normalize(`/${currentPath}`)
+  currentPath = normalize(`${currentPath}`)
   if (asRegex) {
     return new RegExp(matchPath).test(currentPath)
   } else {

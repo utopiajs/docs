@@ -1,0 +1,10 @@
+---
+import AstroLink from '../core/AstroLink/index.astro';
+import { isActive } from '../../utils/support';
+
+const { item } = Astro.props;
+---
+
+<AstroLink href={item.link} active={isActive(Astro.url.pathname, item.activeMatch || item.link, !!item.activeMatch)}>
+  {item.text}
+</AstroLink>

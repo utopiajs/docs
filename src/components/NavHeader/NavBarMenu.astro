@@ -1,0 +1,21 @@
+---
+import NavBarMenuLink from './NavBarMenuLink.astro';
+const nav = [
+  {
+    text: '指南',
+    link: '/guide/',
+    activeMatch: '^/guide/',
+  },
+];
+---
+
+<nav class="nav-bar-menu">
+  {nav.map((item) => (item.link ? <NavBarMenuLink item={item} /> : null))}
+</nav>
+
+<style>
+  .nav-bar-menu {
+    display: flex;
+    margin-right: 15px;
+  }
+</style>

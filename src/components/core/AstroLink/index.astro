@@ -1,0 +1,26 @@
+---
+const { href, active } = Astro.props;
+const isExternal = href && /^[a-z]+:/i.test(href);
+---
+
+<a class={`astro-link ${isExternal ? 'active' : ''}`} href={href} target={isExternal ? 'noopener noreferrer' : undefined}>
+  <slot />
+</a>
+
+<style>
+  .astro-link {
+    display: block;
+    padding: 0 12px;
+    line-height: 54px;
+    font-size: 13px;
+    color: var(--astro-c-text-1);
+    transition: color 0.25s;
+    white-space: nowrap;
+  }
+  .astro-link:hover {
+    color: var(--astro-c-brand);
+  }
+  .astro-link.active {
+    border-bottom: 1px solid var(--astro-c-brand);
+  }
+</style>

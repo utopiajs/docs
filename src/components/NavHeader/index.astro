@@ -1,6 +1,7 @@
 ---
 import NavAppearance from './NavAppearance.astro';
 import SocialLinks from './SocialLinks.astro';
+import NavBarMenu from './NavBarMenu.astro'
 ---
 
 <header class="header">
@@ -10,6 +11,9 @@ import SocialLinks from './SocialLinks.astro';
       <span class="text">Utopia</span>
     </a>
     <div class="content">
+      <div class="menu">
+        <NavBarMenu />
+      </div>
       <div class="appearance">
         <NavAppearance />
       </div>

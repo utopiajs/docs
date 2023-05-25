@@ -19,9 +19,7 @@ const icons = {
     const IconComponent = icons[icon];
     return (
       <a class="astro-social-link" rel="noopener noreferrer" href={link} target="_blank">
-        <component class="astro-social-link-icon">
-          <IconComponent />
-        </component>
+        <IconComponent className="astro-social-link-icon" />
       </a>
     );
   })

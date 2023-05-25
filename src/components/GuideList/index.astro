@@ -1,0 +1,113 @@
+---
+import AstroIconGithub from '../../icons/AstroIconGithub.astro';
+
+const guideList = {
+  fontend: {
+    title: '前端',
+    list: [
+      {
+        title: 'micro-main',
+        description: '微前端主平台，内置登陆、数据流、主题切换、个人中心等模块',
+        github: 'https://github.com/utopiajs/micro-main',
+        tags: [{ type: 'template', name: '模板' }],
+      },
+      {
+        title: 'base-config',
+        description: '代码规范基础配置包，包含eslint，prettier，hooks规则等',
+        github: 'https://github.com/utopiajs/base-config',
+        tags: [{ type: 'config', name: '配置' }],
+      },
+    ],
+  },
+};
+---
+
+<div class="guide-list">
+  {
+    Object.keys(guideList).map((guideKey) => (
+      <div class="guide-item">
+        <p class="main-title">{guideList[guideKey]?.title}</p>
+        <div class="sorted-list">
+          {guideList[guideKey]?.list.map((item) => (
+            <div class="sorted-item-wrap">
+              <div class="sorted-item">
+                <a href="/guide/micro-main" class="title">
+                  {item.title}
+                </a>
+                <p class="description">{item.description}</p>
+                <p class="tags">
+                  {item.tags.map((tag) => (
+                    <span class={`tag tag-${tag.type}`}>{tag.name}</span>
+                  ))}
+                </p>
+                <div class="footer">
+                  {item.github && (
+                    <a href={item.github} target="_blank">
+                      <AstroIconGithub className="icon" />
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .sorted-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -6px;
+  }
+  .main-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .sorted-item-wrap {
+    width: 50%;
+    padding: 0 6px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+  .sorted-item {
+    padding: 12px;
+    border: 1px solid var(--astro-c-divider-light);
+  }
+  .sorted-item .title {
+    color: var(--astro-c-brand);
+    transition: all 0.25s;
+  }
+  .sorted-item .title:hover {
+    opacity: 0.6;
+  }
+  .sorted-item .description {
+    color: var(--astro-c-text-2);
+    font-size: 14px;
+  }
+  .sorted-item .tags .tag {
+    padding: 2px 5px;
+    font-size: 12px;
+    border-radius: 3px;
+    color: var(--astro-c-text-inverse-1);
+  }
+  .tag-template {
+    background-color: var(--astro-c-green);
+  }
+  .tag-config {
+    background-color: var(--astro-c-blue);
+  }
+  .footer {
+    margin-top: 10px;
+  }
+  .footer .icon {
+    width: 16px;
+    line-height: 1;
+    fill: currentColor;
+    color: var(--astro-c-text-2);
+  }
+</style>

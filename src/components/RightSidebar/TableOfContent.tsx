@@ -37,6 +37,7 @@ const TableOfContents = ({ toc = [], labels }: IProps): FC => {
         <a
           className={`toc-header-link depth-${depth} ${currentHeading.slug === slug ? 'current-header-link' : ''}`.trim()}
           href={`#${slug}`}
+          title={unescape(text)}
           onClick={onLinkClick}
         >
           {unescape(text)}

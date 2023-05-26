@@ -1,25 +1,7 @@
 ---
 import AstroIconGithub from '../../icons/AstroIconGithub.astro';
-
-const guideList = {
-  fontend: {
-    title: '前端',
-    list: [
-      {
-        title: 'micro-main',
-        description: '微前端主平台，内置登陆、数据流、主题切换、个人中心等模块',
-        github: 'https://github.com/utopiajs/micro-main',
-        tags: [{ type: 'template', name: '模板' }],
-      },
-      {
-        title: 'base-config',
-        description: '代码规范基础配置包，包含eslint，prettier，hooks规则等',
-        github: 'https://github.com/utopiajs/base-config',
-        tags: [{ type: 'config', name: '配置' }],
-      },
-    ],
-  },
-};
+import AstroIconNpm from '../../icons/AstroIconNpm.astro'
+import guideList from '../../data/guideList'
 ---
 
 <div class="guide-list">
@@ -40,10 +22,15 @@ const guideList = {
                     <span class={`tag tag-${tag.type}`}>{tag.name}</span>
                   ))}
                 </p>
-                <div class="footer">
+                <div class="link-footer">
                   {item.github && (
                     <a href={item.github} target="_blank">
-                      <AstroIconGithub className="icon" />
+                      <AstroIconGithub className="icon icon-github" />
+                    </a>
+                  )}
+                  {item.npm && (
+                    <a href={item.npm} target="_blank">
+                      <AstroIconNpm className="icon icon-npm" />
                     </a>
                   )}
                 </div>
@@ -101,13 +88,12 @@ const guideList = {
   .tag-config {
     background-color: var(--astro-c-blue);
   }
-  .footer {
+  .link-footer {
     margin-top: 10px;
   }
-  .footer .icon {
+  .link-footer .icon {
     width: 16px;
     line-height: 1;
     fill: currentColor;
-    color: var(--astro-c-text-2);
   }
 </style>

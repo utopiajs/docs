@@ -13,8 +13,16 @@ const { title } = Astro.props;
     <style>
       .layout {
         max-width: 1360px;
+        min-height: calc(100vh - 30px);
         margin: 0 auto;
-        padding-top: 75px;
+        padding: 75px 0 30px;
+      }
+      .footer {
+        height: 30px;
+        font-size: 12px;
+        text-align: center;
+        line-height: 30px;
+        background-color: var(--astro-c-bg-soft);
       }
     </style>
   </head>
@@ -25,7 +33,6 @@ const { title } = Astro.props;
         <slot />
       </div>
     </main>
-    <footer>© 2023-present Utopis | KuangPF</footer>
-   
+    <footer class="footer">© 2023-present Utopia | KuangPF</footer>
   </body>
 </html>

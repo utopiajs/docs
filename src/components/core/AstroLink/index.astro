@@ -1,10 +1,11 @@
 ---
-const { href, active } = Astro.props;
+import classNames from 'classnames';
+const { href, active, className = '' } = Astro.props;
 const isExternal = href && /^[a-z]+:/i.test(href);
 ---
 
 <a
-  class={`astro-link ${active ? 'active' : ''}`}
+  class={classNames(['astro-link', className, { active }])}
   href={href}
   target={isExternal ? '_blank' : undefined}
   rel={isExternal ? 'noopener noreferrer' : undefined}

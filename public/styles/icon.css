@@ -1,0 +1,24 @@
+.icon-github {
+  color: var(--astro-c-text-1);
+}
+.icon-npm {
+  color: #c2332d
+}
+.icon-ant-design {
+  color: #118cff;
+}
+.icon-node {
+  color: #026e00
+}
+.icon-docker {
+  color: #019BC6;
+}
+.icon-kubernetes {
+  color: #326de6;
+}
+.icon-typescript {
+  color: #007acc;
+}
+.icon-react {
+  color: #097EA4;
+}

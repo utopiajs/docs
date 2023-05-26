@@ -7,7 +7,8 @@ const guideList = {
         description: '微前端主平台，内置登陆、数据流、主题切换、个人中心等模块。',
         github: 'https://github.com/utopiajs/micro-main',
         tags: [{ type: 'template', name: '模板' }],
-        typescript: true
+        typescript: true,
+        react: true
       },
       {
         title: 'base-config',

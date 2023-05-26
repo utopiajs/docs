@@ -1,24 +1,38 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import GuideList from '../components/GuideList/index.astro'
+import GuideList from '../components/GuideList/index.astro';
 ---
 
 <BaseLayout title="Welcome to Utopia.">
-	<div class="home-content">
-		<div class="guide-content">
-			<GuideList />
-		</div>
-	</main>
-</Layout>
+  <div class="home-content">
+    <div class="introduce">
+      <p>
+        Utopia 中文读音为“乌托邦”，意思为理想的国度。这里的 Utopia
+        不是一个框架，也不是一个库，可以将它理解为适用于团队或者个人的前端（不限于）解决方案，它可以提供技术架构、项目模板、代码规范配置以及服务部署等相关的方案。
+      </p>
+			<p>当然 Utopia 并不是一个标准，它只是提供了一种思路，每个团队或个人都可以拥有自己独立的 Utopia，使用不同的技术栈、代码架构亦或是不同的代码风格，都是可以的。<br>原则上: <strong>适合的才是最好的</strong>。</p>
+    </div>
+
+    <div class="guide-content">
+      <GuideList />
+    </div>
+  </div>
+</BaseLayout>
 
 <style>
-	.home-content {
-		margin: auto;
-		padding: 1.5rem;
-		font-size: 16px;
-		line-height: 1.7;
+  .home-content {
+    margin: auto;
+    padding: 1.5rem;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+	.introduce {
+		margin-bottom: 45px;
 	}
-	.guide-content {
-		width: 80%;
+	.introduce p {
+		margin-bottom: 10px;
 	}
+  .guide-content {
+    width: 80%;
+  }
 </style>

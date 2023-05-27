@@ -74,6 +74,9 @@ import guideList from '../../data/guideList'
     margin-bottom: 12px;
   }
   .sorted-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     padding: 12px;
     border: 1px solid var(--astro-c-divider-light);
   }
@@ -85,6 +88,7 @@ import guideList from '../../data/guideList'
     opacity: 0.6;
   }
   .sorted-item .description {
+    flex: 1;
     color: var(--astro-c-text-2);
     font-size: 14px;
   }

@@ -1,13 +1,15 @@
 ---
 import NavHeader from '../components/NavHeader/index.astro';
 import HeadCommon from '../components/HeadCommon/index.astro';
-const { title } = Astro.props;
+import HeadSEO from '../components/HeadSEO/index.astro'
+const { content,  title } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <HeadCommon />
+    <HeadSEO content={content} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <style>

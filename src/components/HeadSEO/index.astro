@@ -1,0 +1,16 @@
+---
+import siteInfo from '../../data/siteInfo';
+const { content } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname.replace(/([^/])$/, '$1/'), Astro.site);
+---
+
+<!-- OpenGraph Tags -->
+<meta property="og:title" content={content?.title ?? siteInfo.title} />
+<meta property="og:type" content="article" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:locale" content="zh-CN" />
+<meta property="og:image" content="/assets/logo-main-pure.png?v1=1" />
+<meta property="og:image:alt" content={siteInfo.imageAlt} />
+<meta name="description" property="og:description" content={content?.description ?? siteInfo.description} />
+<meta property="og:site_name" content={siteInfo.name} />
+<meta property="og:author" content={siteInfo.author} />

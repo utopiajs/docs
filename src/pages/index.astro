@@ -1,9 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import GuideList from '../components/GuideList/index.astro';
+import siteInfo from '../data/siteInfo'
 ---
 
-<BaseLayout title="Welcome to Utopia.">
+<BaseLayout title={siteInfo.name}>
   <div class="home-content">
     <div class="introduce">
       <p>

@@ -5,7 +5,7 @@ import RightSidebar from '../components/RightSidebar/index.astro';
 const { content, headings, title } = Astro.props;
 ---
 
-<BaseLayout title={title}>
+<BaseLayout content={content} title={title}>
   <div class="container">
     <div class="astro-docs">
       <slot />

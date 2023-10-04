@@ -18,6 +18,9 @@ export default defineConfig({
     react(),
     mdx(),
   ],
+  redirects: {
+    '/introduction/index': '/introduction'
+  },
   markdown: {
     shikiConfig: {
       theme: 'material-theme-palenight',

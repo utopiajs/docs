@@ -1,0 +1,101 @@
+---
+import AstrpIconPlust from "~/icons/AstroIconPlus.astro";
+import NavScreenMenuGroupLink from "./NavScreenMenuGroupLink.astro";
+import NavScreenMenuGroupSection from "./NavScreenMenuGroupSection.astro";
+const { text, items } = Astro.props;
+---
+
+<div class="nav-screen-menu-group">
+  <button class="button" id="menuGroupButton">
+    <span class="button-text">{text}</span>
+    <AstrpIconPlust class="button-icon" />
+  </button>
+
+  <div class="items">
+    {
+      items.map((_item) => {
+        return _item.link ? (
+          <NavScreenMenuGroupLink text={_item.text} link={_item.link} />
+        ) : (
+          <NavScreenMenuGroupSection text={_item.text} items={_item.items} />
+        );
+      })
+    }
+  </div>
+</div>
+
+<script>
+  const navScreentMenuGroupDom = document.getElementsByClassName(
+    "nav-screen-menu-group",
+  )[0] as HTMLSpanElement;
+  document.getElementById("menuGroupButton").addEventListener("click", () => {
+    navScreentMenuGroupDom.classList.toggle("open");
+  });
+</script>
+
+<style>
+  .nav-screen-menu-group {
+    border-bottom: 1px solid var(--astro-c-divider);
+    height: 48px;
+    overflow: hidden;
+    transition: border-color 0.5s;
+  }
+
+  .nav-screen-menu-group .items {
+    visibility: hidden;
+  }
+
+  .nav-screen-menu-group.open .items {
+    visibility: visible;
+  }
+
+  .nav-screen-menu-group.open {
+    padding-bottom: 10px;
+    height: auto;
+  }
+
+  .nav-screen-menu-group.open .button {
+    padding-bottom: 6px;
+    color: var(--astro-c-brand);
+  }
+
+  .nav-screen-menu-group.open :global(.button-icon) {
+    /*rtl:ignore*/
+    transform: rotate(45deg);
+  }
+
+  .button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 4px 11px 0;
+    width: 100%;
+    line-height: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--astro-c-text-1);
+    transition: color 0.25s;
+  }
+
+  .button:hover {
+    color: var(--astro-c-brand);
+  }
+
+  :global(.button-icon) {
+    width: 14px;
+    height: 14px;
+    fill: var(--astro-c-text-2);
+    transition:
+      fill 0.5s,
+      transform 0.25s;
+  }
+
+  .group:first-child {
+    padding-top: 0px;
+  }
+
+  .group + .group,
+  .group + .item {
+    padding-top: 4px;
+  }
+</style>

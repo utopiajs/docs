@@ -1,21 +1,24 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import GuideList from '../components/GuideList/index.astro';
-import siteInfo from '../data/siteInfo'
+import BaseLayout from "../layouts/BaseLayout.astro";
+import siteInfo from "../data/siteInfo";
+import AstroIconArrowRight from "../icons/AstroIconArrowRight.astro";
 ---
 
 <BaseLayout title={siteInfo.name}>
   <div class="home-content">
-    <div class="introduce">
-      <p>
-        Utopia 中文读音为“乌托邦”，意思为理想的国度。这里的 Utopia
-        不是一个框架，也不是一个库，可以将它理解为适用于团队或者个人的前端（不限于）解决方案，它可以提供技术架构、项目模板、代码规范配置以及服务部署等相关的方案。
+    <div class="hero">
+      <img src="/assets/logo-main-pure.png" class="logo" />
+      <h1 class="title">utopia</h1>
+      <p class="description">
+        适用于团队（个人）的全流程、原子能力集技术解决方案。
       </p>
-			<p>当然 Utopia 并不是一个标准，它只是提供了一种思路，每个团队或个人都可以拥有自己独立的 Utopia，使用不同的技术栈、代码架构亦或是不同的代码风格，都是可以的。<br>原则上: <strong>适合的才是最好的</strong>。</p>
-    </div>
-
-    <div class="guide-content">
-      <GuideList />
+      <p class="actions">
+        <a class="primary" href="/introduction">Why Utopia</a>
+        <a class="default" href="/guide">
+          快速开始
+          <AstroIconArrowRight class="astro-icon" />
+        </a>
+      </p>
     </div>
   </div>
 </BaseLayout>
@@ -27,13 +30,97 @@ import siteInfo from '../data/siteInfo'
     font-size: 16px;
     line-height: 1.7;
   }
-	.introduce {
-		margin-bottom: 45px;
-	}
-	.introduce p {
-		margin-bottom: 10px;
-	}
-  .guide-content {
-    width: 80%;
+  .hero {
+    padding: 96px 32px;
+    text-align: center;
+  }
+  .hero .logo {
+    width: 112px;
+  }
+  .hero .title {
+    font-size: 52px;
+    line-height: 1.25;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .hero .description {
+    max-width: 960px;
+    line-height: 1.5;
+    color: var(--astro-c-text-2);
+    transition: color 0.5s;
+    font-size: 20px;
+    margin: 24px auto 40px;
+  }
+  .actions a {
+    font-size: 16px;
+    display: inline-block;
+    background-color: var(--astro-c-bg-mute);
+    padding: 8px 18px;
+    font-weight: 500;
+    border-radius: 8px;
+    transition:
+      background-color 0.5s,
+      color 0.5s;
+  }
+  .actions .primary {
+    font-size: 16px;
+    display: inline-block;
+    border-radius: 8px;
+    transition:
+      background-color 0.5s,
+      color 0.5s;
+    position: relative;
+    font-weight: 600;
+    background-color: var(--astro-c-green);
+    color: #fff;
+    margin-right: 18px;
+    padding: 8px 1em;
+    &:hover {
+      background-color: var(--astro-c-green-dark);
+      transition-duration: 0.2s;
+    }
+  }
+  :global(.astro-icon) {
+    position: relative;
+    top: 2px;
+  }
+  .actions .default {
+    color: var(--astro-c-text-code);
+    font-weight: 500;
+    &:hover {
+      background-color: var(--astro-c-gray-light-3);
+      transition-duration: 0.2s;
+    }
+  }
+  :global(.dark) .actions .primary {
+    color: var(--astro-c-indigo);
+  }
+  :global(.dark) .actions .default {
+    &:hover {
+      background-color: var(--astro-c-gray-dark-3);
+    }
+  }
+
+  .introduce {
+    margin-bottom: 45px;
+  }
+  .introduce p {
+    margin-bottom: 10px;
+  }
+  @media (max-width: 768px) {
+    .home-content {
+      padding: 0;
+    }
+    .hero {
+      padding-inline: 0;
+    }
+    .hero .title {
+      font-size: 48px;
+    }
+    .description {
+      font-size: 16px;
+    }
   }
 </style>

@@ -1,0 +1,14 @@
+---
+import AstroIconChevronDown from '~/icons/AstroIconChevronDown.astro';
+const { icon, button, label, items } = Astro.props;
+---
+
+<div class="fly-out">
+  <button>
+    {button || icon ? <span class="text">
+    {button}
+    <AstroIconChevronDown class="text-icon" />
+    </span>
+     : null}
+  </button>
+</div>

@@ -1,0 +1,111 @@
+---
+import NavBarMenuLink from './NavBarMenuLink.astro';
+import navBarData from '~/data/navBar'
+---
+
+<nav class="nav-bar-menu">
+  {navBarData.navList.map((item) => (item.link ? <NavBarMenuLink item={item} /> : null))}
+</nav>
+
+<style>
+  .nav-bar-menu {
+    margin-right: 15px;
+  }
+</style>
+======
+<button
+  type="button"
+  id="nav-bar-hamburger-content"
+  class:list={["nav-bar-hamburger"]}
+  aria-label="mobile navigation"
+>
+  <span class="container">
+    <span class="top"></span>
+    <span class="middle"></span>
+    <span class="bottom"></span>
+  </span>
+</button>
+
+<style>
+  .nav-bar-hamburger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 55px;
+  }
+  .container {
+    position: relative;
+    width: 16px;
+    height: 14px;
+    overflow: hidden;
+  }
+
+  .nav-bar-hamburger:hover .top {
+    top: 0;
+    left: 0;
+    transform: translateX(4px);
+  }
+  .nav-bar-hamburger:hover .middle {
+    top: 6px;
+    left: 0;
+    transform: translateX(0);
+  }
+  .nav-bar-hamburger:hover .bottom {
+    top: 12px;
+    left: 0;
+    transform: translateX(8px);
+  }
+
+  .nav-bar-hamburger.active .top {
+    top: 6px;
+    transform: translateX(0) rotate(225deg);
+  }
+  .nav-bar-hamburger.active .middle {
+    top: 6px;
+    transform: translateX(16px);
+  }
+  .nav-bar-hamburger.active .bottom {
+    top: 6px;
+    transform: translateX(0) rotate(135deg);
+  }
+
+  .nav-bar-hamburger.active:hover .top,
+  .nav-bar-hamburger.active:hover .middle,
+  .nav-bar-hamburger.active:hover .bottom {
+    background-color: var(--astro-c-text-2);
+    transition:
+      top 0.25s,
+      background-color 0.25s,
+      transform 0.25s;
+  }
+
+  .top,
+  .middle,
+  .bottom {
+    position: absolute;
+    width: 16px;
+    height: 2px;
+    background-color: var(--astro-c-text-1);
+    transition:
+      top 0.25s,
+      background-color 0.5s,
+      transform 0.25s;
+  }
+
+  .top {
+    top: 0;
+    left: 0;
+    transform: translateX(0);
+  }
+  .middle {
+    top: 6px;
+    left: 0;
+    transform: translateX(8px);
+  }
+  .bottom {
+    top: 12px;
+    left: 0;
+    transform: translateX(4px);
+  }
+</style>

@@ -1,7 +1,9 @@
 ---
-import NavAppearance from './NavAppearance.astro';
-import SocialLinks from './SocialLinks.astro';
-import NavBarMenu from './NavBarMenu.astro'
+import NavAppearance from "./NavAppearance.astro";
+import SocialLinks from "./NavSocialLinks.astro";
+import NavBarMenu from "./NavBarMenu.astro";
+import NavBarHamburger from "./NavBarHamburger.astro";
+import NavBarScreen from "./NavBarScreen.astro";
 ---
 
 <header class="header">
@@ -20,9 +22,26 @@ import NavBarMenu from './NavBarMenu.astro'
       <div class="social-links">
         <SocialLinks />
       </div>
+      <div class="nav-bar-hamburger-content">
+        <NavBarHamburger />
+      </div>
     </div>
   </div>
+
+  <div class="nav-screen-content" id="nav-screen-content">
+    <NavBarScreen />
+  </div>
 </header>
+
+<script>
+  const navHamburgerDom = document.getElementById("nav-bar-hamburger-content");
+  const navScreenContentDom = document.getElementById("nav-screen-content");
+  navHamburgerDom.addEventListener("click", (e) => {
+    const currentTarget = e.currentTarget as HTMLSpanElement;
+    navScreenContentDom.classList.toggle("open");
+    currentTarget.classList.toggle("active");
+  });
+</script>
 
 <style>
   .header {
@@ -39,7 +58,7 @@ import NavBarMenu from './NavBarMenu.astro'
     max-width: 1360px;
     height: 100%;
     margin: 0 auto;
-    padding: 0 32px;
+    padding: 0 12px 0 24px;
   }
   .logo-content {
     display: flex;
@@ -65,8 +84,50 @@ import NavBarMenu from './NavBarMenu.astro'
     justify-content: flex-end;
     flex-grow: 1;
   }
+  .menu {
+    display: none;
+  }
+  .appearance {
+    display: none;
+  }
   .social-links {
-    display: flex;
+    display: none;
     margin-left: 12px;
+  }
+  .nav-bar-hamburger-content {
+    display: block;
+  }
+  .nav-screen-content {
+    display: none;
+    position: fixed;
+    top: 55px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0 32px;
+    width: 100%;
+    background-color: var(--astro-c-bg);
+    transition: background-color 0.5s;
+    overflow-y: auto;
+  }
+  .nav-screen-content.open {
+    display: block;
+  }
+  @media (min-width: 768px) {
+    .container {
+      padding: 0 32px;
+    }
+    .menu {
+      display: block;
+    }
+    .appearance {
+      display: block;
+    }
+    .social-links {
+      display: flex;
+    }
+    .nav-bar-hamburger-content {
+      display: none;
+    }
   }
 </style>

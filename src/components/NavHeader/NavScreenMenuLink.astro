@@ -1,0 +1,24 @@
+---
+import AstroLink from "~/components/core/AstroLink/index.astro";
+
+const { text, link } = Astro.props;
+---
+
+<AstroLink href={link} classList={['nav-screen-menu-link']}>
+  {text}
+</AstroLink>
+
+<style is:global>
+  .nav-screen-menu-link {
+    display: block;
+    border-bottom: 1px solid var(--astro-c-divider);
+    padding: 12px 0 11px;
+    line-height: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--vp-c-text-1);
+    transition:
+      border-color 0.25s,
+      color 0.25s;
+  }
+</style>

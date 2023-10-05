@@ -1,0 +1,40 @@
+---
+import AstroIconGithub from '../../icons/AstroIconGithub.astro';
+import navBarData from '~/data/navBar';
+
+const icons = {
+  github: AstroIconGithub,
+};
+---
+
+{
+  navBarData.socialLinks.map((item) => {
+    const { icon, link } = item;
+    const IconComponent = icons[icon];
+    return (
+      <a class="astro-social-link" rel="noopener noreferrer" href={link} target="_blank">
+        <IconComponent className="astro-social-link-icon" />
+      </a>
+    );
+  })
+}
+
+<style>
+  .astro-social-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    color: var(--astro-c-text-2);
+  }
+  .astro-social-link .astro-social-link-icon {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+  }
+  .astro-social-link:hover {
+    color: var(--astro-c-text-1);
+    transition: color 0.2s;
+  }
+</style>

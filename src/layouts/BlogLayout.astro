@@ -1,11 +1,26 @@
 ---
-import BaseLayout from './BaseLayout.astro';
-import RightSidebar from '../components/RightSidebar/index.astro';
+import BaseLayout from "./BaseLayout.astro";
+import RightSidebar from "../components/RightSidebar/index.astro";
+import DividerLine from "../components/Divider/index.astro";
 
-const { content, headings, title } = Astro.props;
+const {
+  content,
+  headings,
+  title,
+  data: { showDocsInfo } = { showDocsInfo: false },
+} = Astro.props;
 ---
 
 <BaseLayout content={content} title={title}>
+  {
+    showDocsInfo ? (
+      <div class="docs-info">
+        <h1 class="title">{title}</h1>
+        <DividerLine />
+      </div>
+    ) : null
+  }
+
   <div class="container">
     <div class="astro-docs">
       <slot />
@@ -20,7 +35,9 @@ const { content, headings, title } = Astro.props;
   function scrollTo(el: Element, hash: string, smooth = false) {
     let target: Element | null = null;
     try {
-      target = el.classList.contains('header-anchor') ? el : document.querySelector(decodeURIComponent(hash));
+      target = el.classList.contains("header-anchor")
+        ? el
+        : document.querySelector(decodeURIComponent(hash));
     } catch (error) {
       console.warn(error);
     }
@@ -28,25 +45,35 @@ const { content, headings, title } = Astro.props;
     if (target) {
       let offset: number = 90;
 
-      const targetPadding = parseInt(window.getComputedStyle(target).paddingTop, 10);
-      const targetTop = window.scrollY + target.getBoundingClientRect().top - offset + targetPadding;
+      const targetPadding = parseInt(
+        window.getComputedStyle(target).paddingTop,
+        10,
+      );
+      const targetTop =
+        window.scrollY +
+        target.getBoundingClientRect().top -
+        offset +
+        targetPadding;
 
-      if (!smooth || Math.abs(targetTop - window.scrollY) > window.innerHeight) {
+      if (
+        !smooth ||
+        Math.abs(targetTop - window.scrollY) > window.innerHeight
+      ) {
         window.scrollTo(0, targetTop);
       } else {
         window.scrollTo({
           left: 0,
           top: targetTop,
-          behavior: 'smooth',
+          behavior: "smooth",
         });
       }
     }
   }
-  window.addEventListener('click', (e: MouseEvent) => {
+  window.addEventListener("click", (e: MouseEvent) => {
     // anchor 处理
-    const link = (e.target as Element).closest('a');
-    const isHeadAnchor = link?.classList.contains('header-anchor');
-    const isTocHeader = link?.classList.contains('toc-header-link');
+    const link = (e.target as Element).closest("a");
+    const isHeadAnchor = link?.classList.contains("header-anchor");
+    const isTocHeader = link?.classList.contains("toc-header-link");
 
     if ((isHeadAnchor || isTocHeader) && link) {
       const { pathname, hash, search } = new URL(link.href, link.baseURI);
@@ -56,10 +83,10 @@ const { content, headings, title } = Astro.props;
       if (pathname == currentUrl.pathname && search === currentUrl.search) {
         if (hash) {
           if (hash !== currentUrl.hash) {
-            history.pushState(null, '', hash);
+            history.pushState(null, "", hash);
           }
 
-          scrollTo(link, hash, link.classList.contains('header-anchor'));
+          scrollTo(link, hash, link.classList.contains("header-anchor"));
         }
       }
     }
@@ -67,8 +94,13 @@ const { content, headings, title } = Astro.props;
 </script>
 
 <style>
+  .docs-info .title {
+    margin: 15px 0 30px;
+    text-align: center;
+  }
   .container {
     display: flex;
+    margin-top: 30px;
   }
   .astro-docs {
     flex: 1;

@@ -1,0 +1,23 @@
+---
+import NavBarScreenMenu from "./NavBarScreenMenu.astro";
+import NavScreenAppearance from './NavScreenAppearance.astro';
+import NavScreenSocialLinks from "./NavScreenSocialLinks.astro";
+---
+
+<div class="container">
+  <NavBarScreenMenu />
+  <NavScreenAppearance />
+  <NavScreenSocialLinks />
+</div>
+
+<style>
+  .container {
+    margin: 0 auto;
+    padding: 24px 0 96px;
+    max-width: 288px;
+  }
+  .container :global(.astro-social-link-icon) {
+    width: 32px;
+    height: 32px;
+  }
+</style>

@@ -1,0 +1,17 @@
+---
+import navBarData from "~/data/navBar";
+import NavScreenMenuGroup from "./NavScreenMenuGroup.astro";
+import NavScreenMenuLink from "./NavScreenMenuLink.astro";
+---
+
+<nav class="nav-screen-menu">
+  {
+    navBarData.navList.map((item) => {
+      return item.link ? (
+        <NavScreenMenuLink text={item.text} link={item.link} />
+      ) : (
+        <NavScreenMenuGroup text={item.text} items={item.items} />
+      );
+    })
+  }
+</nav>

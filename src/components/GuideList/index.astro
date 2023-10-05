@@ -1,9 +1,9 @@
 ---
-import AstroIconGithub from '../../icons/AstroIconGithub.astro';
-import AstroIconTypescript from '../../icons/AstroIconTypeScript.astro'
-import AstroIconNpm from '../../icons/AstroIconNpm.astro'
-import AstroIconReact from '../../icons/AstroIconReact.astro'
-import guideList from '../../data/guideList'
+import AstroIconGithub from "../../icons/AstroIconGithub.astro";
+import AstroIconTypeScript from "../../icons/AstroIconTypeScript.astro";
+import AstroIconNpm from "../../icons/AstroIconNpm.astro";
+import AstroIconReact from "../../icons/AstroIconReact.astro";
+import guideList from "../../data/guideList";
 ---
 
 <div class="guide-list">
@@ -27,22 +27,22 @@ import guideList from '../../data/guideList'
                 <div class="link-footer">
                   {item.github && (
                     <a href={item.github} target="_blank">
-                      <AstroIconGithub className="icon icon-github" />
+                      <AstroIconGithub class="icon icon-github" />
                     </a>
                   )}
                   {item.npm && (
                     <a href={item.npm} target="_blank">
-                      <AstroIconNpm className="icon icon-npm" />
+                      <AstroIconNpm class="icon icon-npm" />
                     </a>
                   )}
                   {item.typescript && (
                     <span>
-                      <AstroIconTypescript className="icon icon-typescript" />
+                      <AstroIconTypeScript class="icon icon-typescript" />
                     </span>
                   )}
                   {item.react && (
                     <span>
-                      <AstroIconReact className="icon icon-react" />
+                      <AstroIconReact class="icon icon-react" />
                     </span>
                   )}
                 </div>
@@ -56,6 +56,9 @@ import guideList from '../../data/guideList'
 </div>
 
 <style>
+  .guide-list {
+    padding: 30px;
+  }
   .sorted-list {
     display: flex;
     flex-wrap: wrap;
@@ -107,12 +110,28 @@ import guideList from '../../data/guideList'
   .link-footer {
     margin-top: 10px;
   }
-  .link-footer a, span {
+  .link-footer a,
+  span {
     margin-right: 5px;
   }
-  .link-footer .icon {
+  .link-footer :global(.icon) {
     width: 16px;
+    height: 16px;
     line-height: 1;
     fill: currentColor;
+  }
+
+  @media (max-width: 768px) {
+    .guide-list {
+      padding: 0;
+    }
+    .sorted-item-wrap {
+      width: 100%;
+    }
+  }
+  @media (min-width: 1200px) {
+    .sorted-item-wrap {
+      width: 33.33%;
+    }
   }
 </style>

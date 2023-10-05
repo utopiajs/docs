@@ -1,0 +1,82 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import siteInfo from "../../data/siteInfo";
+---
+
+<BaseLayout title={siteInfo.name}>
+  <div class="introduce astro-docs">
+    <h1 class="title">utopia.space</h1>
+    <p>
+      Utopia 中文读音为“乌托邦”，意思为理想的国度。这里的 Utopia
+      不是一个框架，也不是一个库，可以将它理解为适用于团队或者个人的前端（不限于）解决方案，它可以提供技术架构、项目模板、代码规范配置以及服务部署等相关的方案。
+    </p>
+    <p>
+      当然 Utopia
+      并不是一个标准，它只是提供了一种思路，每个团队或个人都可以拥有自己独立的
+      Utopia，使用不同的技术栈、代码架构亦或是不同的代码风格，都是可以的。<br
+      />原则上: <strong class="color-primary">适合的才是最好的</strong>。
+    </p>
+    <h3>Why Utopia</h3>
+
+    <div class="img-wrap">
+      <img src="/assets/introduction/solution-atomic_set.png" />
+    </div>
+    <p>
+      前端目前处于一个万花筒的世界，各类框架，各种类库层出不穷。当然这是一种好的现象，一方面绝大部分框架或者类库的出现都是为了解决当下一些问题或是本身有着自己独特的优势，比如高性能、速度快、语法简单等，
+      另外社区开放对于开发者来讲提供了更多的可选范围。如何在如此多的选择中规范自己团队的技术架构是一件很重要的事情，也就是团队需要做到“技术收敛”。这也就是为什么会有
+      Utopia 的原因，即：基于技术收敛，提供原子集能力技术解决方案。
+    </p>
+    <h3>What Utopia</h3>
+    <p>
+      那落地下来什么是真正意义上的 Utopia？目前 Utopia
+      还处于萌芽阶段，很多方案都还处于基于或者完善中，目前已规划的有：
+    </p>
+
+    <ul>
+      <li><a href="guide/micro-main" target="_blank">micro-main</a>: 中后台（微前端）解决方案</li>
+      <li>
+        <a>micro-main-server</a>: 配合 micro-main，基于 node、mongodb 以及
+        express 的后端解决方案
+      </li>
+      <li>
+        <a>base-config</a>：代码风格基础配置，包含 eslint，prettier等
+      </li>
+    </ul>
+    <p>
+      类似于 micro-main、micro-main-server
+      等这些可以理解为是一种技术解决方案，里面包含了各种功能项，对应的功能项可以视为原子集能力。
+    </p>
+    <div class="img-wrap">
+      <img src="/assets/introduction/solution-micro-main.png" />
+    </div>
+
+    <h3>How to use</h3>
+    <p>
+      Utopia
+      可以提供模板、npm、Docker镜像等形式，有些是可以开箱即用的，有些可能需要二次开发，但有些可能不适用，因为不一定完全适用于个人或者团队目前的技术情形，这种情况，可以基于方案里面的原子集能力，找出适合自己的最优解。
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .title {
+    background: -webkit-linear-gradient(315deg, #42d392 25%, #647eff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 76px;
+    text-align: center;
+  }
+  .color-primary {
+    color: var(--astro-c-brand);
+  }
+  .introduce .img-wrap {
+    margin: 20px auto;
+    text-align: center;
+  }
+  @media (max-width: 768px) {
+    .title {
+      font-size: 32px;
+    }
+  }
+</style>

@@ -1,0 +1,32 @@
+---
+import NavScreenMenuGroupLink from "./NavScreenMenuGroupLink.astro";
+const { text, items } = Astro.props;
+---
+
+<div class="">
+  {
+    text && (
+      <p v-if="text" class="title">
+        {text}
+      </p>
+    )
+  }
+  {
+    items.map((item) => (
+      <NavScreenMenuGroupLink text={item.text} link={item.link} />
+    ))
+  }
+</div>
+
+<style>
+  .nav-screen-menu-group-section {
+    display: block;
+  }
+  .title {
+    line-height: 32px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--astro-c-text-2);
+    transition: color 0.25s;
+  }
+</style>

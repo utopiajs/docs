@@ -257,6 +257,14 @@
   border: 0;
 }
 
+.astro-docs :not(pre)>code {
+  background-color: var(--astro-c-bg-mute);
+  padding: .15em .5em;
+  border-radius: 4px;
+  color: var(--astro-c-text-code);
+  transition: color .5s,background-color .5s
+}
+
 @media (min-width: 640px) {
   .astro-docs .video {
     border-radius: 8px;

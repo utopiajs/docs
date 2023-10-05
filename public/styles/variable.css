@@ -71,7 +71,7 @@
   --astro-c-bg: var(--astro-c-white);
   --astro-c-bg-soft: var(--astro-c-white-soft);
   --astro-c-bg-mute: var(--astro-c-white-mute);
-  --astro-c-divider: var(--astro-c-divider-light-1);
+  --astro-c-divider: var(--astro-c-divider-light-2);
   --astro-c-divider-light: var(--astro-c-divider-light-2);
   --astro-c-divider-inverse: var(--astro-c-divider-dark-1);
   --astro-c-divider-inverse-light: var(--astro-c-divider-dark-2);
@@ -94,7 +94,7 @@
   --astro-c-bg: var(--astro-c-black);
   --astro-c-bg-soft: var(--astro-c-black-soft);
   --astro-c-bg-mute: var(--astro-c-black-mute);
-  --astro-c-divider: var(--astro-c-divider-dark-1);
+  --astro-c-divider: var(--astro-c-divider-light-2);
   --astro-c-divider-light: var(--astro-c-divider-dark-2);
   --astro-c-divider-inverse: var(--astro-c-divider-light-1);
   --astro-c-divider-inverse-light: var(--astro-c-divider-light-2);

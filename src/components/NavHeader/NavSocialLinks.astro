@@ -13,7 +13,7 @@ const icons = {
     const IconComponent = icons[icon];
     return (
       <a class="astro-social-link" rel="noopener noreferrer" href={link} target="_blank">
-        <IconComponent className="astro-social-link-icon" />
+        <IconComponent class="astro-social-link-icon" />
       </a>
     );
   })
@@ -28,7 +28,7 @@ const icons = {
     height: 36px;
     color: var(--astro-c-text-2);
   }
-  .astro-social-link .astro-social-link-icon {
+  .astro-social-link :global(.astro-social-link-icon) {
     width: 22px;
     height: 22px;
     fill: currentColor;

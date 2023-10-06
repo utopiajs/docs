@@ -52,3 +52,8 @@ img {
 a {
   text-decoration: none;
 }
+button {
+  padding: 0;
+  background-color: transparent;
+  background-image: none;
+}

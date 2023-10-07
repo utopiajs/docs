@@ -1,0 +1,76 @@
+---
+import NavMenuLink from "./NavMenuLink.astro";
+import NavMenuGroup from "./NavMenuGroup.astro";
+const { items } = Astro.props;
+---
+
+<div class="nav-menu">
+  <div class="menu-items">
+    {
+      items.map((item) =>
+        item.link ? (
+          <NavMenuLink item={item} />
+        ) : (
+          <NavMenuGroup text={item.text} items={item.items} />
+        ),
+      )
+    }
+  </div>
+
+  <slot />
+</div>
+
+<style>
+  .nav-menu {
+    border-radius: 8px;
+    padding: 12px 0;
+    min-width: 192px;
+    border: 1px solid var(--astro-c-divider);
+    background-color: var(--astro-c-bg);
+    box-shadow: var(--astro-shadow-3);
+    transition: background-color 0.5s;
+    max-height: calc(100vh - var(--astro-nav-height));
+    overflow-y: auto;
+  }
+
+  .nav-menu :deep(.group) {
+    margin: 0 -12px;
+    padding: 0 12px 12px;
+  }
+
+  .nav-menu :deep(.group + .group) {
+    border-top: 1px solid var(--astro-c-divider);
+    padding: 11px 12px 12px;
+  }
+
+  .nav-menu :deep(.group:last-child) {
+    padding-bottom: 0;
+  }
+
+  .nav-menu :deep(.group + .item) {
+    border-top: 1px solid var(--astro-c-divider);
+    padding: 11px 16px 0;
+  }
+
+  .nav-menu :deep(.item) {
+    padding: 0 16px;
+    white-space: nowrap;
+  }
+
+  .nav-menu :deep(.label) {
+    flex-grow: 1;
+    line-height: 28px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--astro-c-text-2);
+    transition: color 0.5s;
+  }
+
+  .nav-menu :deep(.action) {
+    padding-left: 24px;
+  }
+
+  :global(.dark) .nav-menu {
+    box-shadow: var(--astro-shadow-1);
+  }
+</style>

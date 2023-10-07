@@ -25,12 +25,16 @@ const { text, items } = Astro.props;
 </div>
 
 <script>
+  const menuGroupButtonDom = document.getElementById("menuGroupButton");
   const navScreentMenuGroupDom = document.getElementsByClassName(
     "nav-screen-menu-group",
   )[0] as HTMLSpanElement;
-  document.getElementById("menuGroupButton").addEventListener("click", () => {
-    navScreentMenuGroupDom.classList.toggle("open");
-  });
+
+  if (menuGroupButtonDom) {
+    menuGroupButtonDom.addEventListener("click", () => {
+      navScreentMenuGroupDom.classList.toggle("open");
+    });
+  }
 </script>
 
 <style>

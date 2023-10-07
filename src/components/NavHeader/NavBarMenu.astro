@@ -1,14 +1,30 @@
 ---
-import NavBarMenuLink from './NavBarMenuLink.astro';
-import navBarData from '~/data/navBar';
+import NavBarMenuLink from "./NavBarMenuLink.astro";
+import NavBarMenuGroup from "./NavBarMenuGroup.astro";
+import navBarData from "~/data/navBar";
 ---
 
 <nav class="nav-bar-menu">
-  {navBarData.navList.map((item) => (item.link ? <NavBarMenuLink item={item} /> : null))}
+  {
+    navBarData.navList.map((item) =>
+      item.link ? (
+        <NavBarMenuLink item={item} />
+      ) : (
+        <NavBarMenuGroup item={item} />
+      ),
+    )
+  }
 </nav>
 
 <style>
   .nav-bar-menu {
+    display: none;
     margin-right: 15px;
+    white-space: nowrap;
+  }
+  @media (min-width: 768px) {
+    .nav-bar-menu {
+      display: flex;
+    }
   }
 </style>

@@ -1,0 +1,35 @@
+---
+import AstroLink from "../core/AstroLink/index.astro";
+import { isActive } from "../../utils/support";
+
+const { item } = Astro.props;
+---
+
+<AstroLink
+  href={item.link}
+  classList={[
+    "nav-menu-link",
+    {
+      active: isActive(
+        Astro.url.pathname,
+        item.activeMatch || item.link,
+        !!item.activeMatch,
+      ),
+    },
+  ]}
+>
+  {item.text}
+</AstroLink>
+
+<style is:global>
+  .nav-menu-link {
+    display: block;
+    padding: 0 18px;
+    line-height: 28px;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--astro-c-text-1);
+    white-space: nowrap;
+    transition: color 0.25s;
+  } 
+</style>

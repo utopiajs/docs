@@ -1,0 +1,43 @@
+---
+import NavMenuLink from "./NavMenuLink.astro";
+const { text, items } = Astro.props;
+---
+
+<div class="menu-group">
+  <p class="title">{text}</p>
+  {items.map((item) => <NavMenuLink item={item} />)}
+</div>
+
+<style>
+  .menu-group {
+    border-top: 1px solid var(--astro-c-divider);
+    padding-bottom: 12px;
+  }
+  .menu-group:first-child {
+    margin-top: 0;
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .menu-group + .menu-group {
+    padding: 11px 0 12px;
+    border-top: 1px solid var(--astro-c-divider);
+  }
+  .menu-group:last-child {
+    padding-bottom: 0 !important;
+  }
+
+  .title {
+    padding: 0 18px;
+    line-height: 28px;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--astro-c-text-3);
+    text-transform: uppercase;
+    transition: color 0.25s;
+  }
+  .menu-group :global(a.active) {
+    border-bottom: none;
+    color: var(--astro-c-brand);
+  }
+</style>

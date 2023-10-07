@@ -13,9 +13,7 @@ import NavBarScreen from "./NavBarScreen.astro";
       <span class="text">Utopia</span>
     </a>
     <div class="content">
-      <div class="menu">
-        <NavBarMenu />
-      </div>
+      <NavBarMenu />
       <div class="appearance">
         <NavAppearance />
       </div>
@@ -84,9 +82,6 @@ import NavBarScreen from "./NavBarScreen.astro";
     justify-content: flex-end;
     flex-grow: 1;
   }
-  .menu {
-    display: none;
-  }
   .appearance {
     display: none;
   }
@@ -116,9 +111,6 @@ import NavBarScreen from "./NavBarScreen.astro";
   @media (min-width: 768px) {
     .container {
       padding: 0 32px;
-    }
-    .menu {
-      display: block;
     }
     .appearance {
       display: block;

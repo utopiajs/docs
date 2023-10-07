@@ -1,0 +1,17 @@
+---
+import Flyout from "./Flyout.astro";
+import { isActive } from "../../utils/support";
+const { item } = Astro.props;
+const flyoutClass = ["nav-bar-menu-group"];
+if (
+  isActive(
+    Astro.url.pathname,
+    item.activeMatch || item.link,
+    !!item.activeMatch,
+  )
+) {
+  flyoutClass.push("active");
+}
+---
+
+<Flyout class={flyoutClass} items={item.items} button={item.text} />

@@ -1,8 +1,23 @@
-<div class="divider-line"></div>
+---
+const { direction = "horizontal", class: className = [] } = Astro.props;
+---
+
+{
+  direction === "horizontal" ? (
+    <div class:list={["divider-line-horizontal", ...className]} />
+  ) : (
+    <div class:list={["divider-line-vertical", ...className]} />
+  )
+}
 
 <style>
-  .divider-line {
+  .divider-line-horizontal {
     height: 1px;
+    background-color: var(--astro-c-divider-light);
+  }
+  .divider-line-vertical {
+    width: 1px;
+    height: 100%;
     background-color: var(--astro-c-divider-light);
   }
 </style>

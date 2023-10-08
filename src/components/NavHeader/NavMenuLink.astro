@@ -32,4 +32,8 @@ const { item } = Astro.props;
     white-space: nowrap;
     transition: color 0.25s;
   } 
+  .nav-menu-link~.active {
+    border-bottom: none;
+    color: var(--astro-c-brand);
+  }
 </style>

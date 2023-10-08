@@ -1,0 +1,166 @@
+
+<div id="docsearch"></div>
+
+<script>
+  import docsearch from "@docsearch/js";
+  import algoliaConfig from '~/data/algolia.config';
+
+  docsearch(algoliaConfig);
+</script>
+
+<style is:inline>
+  .DocSearch {
+    --docsearch-primary-color: var(--astro-c-brand);
+    --docsearch-highlight-color: var(--docsearch-primary-color);
+    --docsearch-text-color: var(--astro-c-text-1);
+    --docsearch-muted-color: var(--astro-c-text-2);
+    --docsearch-searchbox-shadow: none;
+    --docsearch-searchbox-focus-background: transparent;
+    --docsearch-key-gradient: transparent;
+    --docsearch-key-shadow: none;
+    --docsearch-modal-background: var(--astro-c-bg-soft);
+    --docsearch-footer-background: var(--astro-c-bg);
+  }
+
+  .dark .DocSearch {
+    --docsearch-modal-shadow: none;
+    --docsearch-footer-shadow: none;
+    --docsearch-logo-color: var(--astro-c-text-2);
+    --docsearch-hit-background: var(--astro-c-bg-soft-mute);
+    --docsearch-hit-color: var(--astro-c-text-2);
+    --docsearch-hit-shadow: none;
+  }
+
+  .DocSearch-Button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 48px;
+    height: 55px;
+    background: transparent;
+    transition: border-color 0.25s;
+  }
+
+  .DocSearch-Button:hover {
+    background: transparent;
+  }
+
+  .DocSearch-Button:focus {
+    outline: 1px dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+  }
+
+  .DocSearch-Button:focus:not(:focus-visible) {
+    outline: none !important;
+  }
+
+  .DocSearch-Button .DocSearch-Button-Container {
+    display: flex;
+    align-items: center;
+  }
+
+  .DocSearch-Button .DocSearch-Search-Icon {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    color: var(--astro-c-text-1);
+    fill: currentColor;
+    transition: color 0.5s;
+  }
+
+  .DocSearch-Button:hover .DocSearch-Search-Icon {
+    color: var(--astro-c-text-1);
+  }
+
+  .DocSearch-Button .DocSearch-Button-Placeholder {
+    display: none;
+    margin-top: 2px;
+    padding: 0 16px 0 0;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--astro-c-text-2);
+    transition: color 0.5s;
+  }
+
+  .DocSearch-Button:hover {
+    .DocSearch-Button-Placeholder {
+      color: var(--astro-c-text-1);
+    }
+    .DocSearch-Button-Keys {
+      border-color: var(--astro-c-brand-light);
+    }
+    .DocSearch-Button-Key {
+      color: var(--astro-c-brand-light);
+    }
+  }
+
+  .DocSearch-Button .DocSearch-Button-Keys {
+    display: none;
+    gap: 2px;
+    min-width: auto;
+    box-sizing: border-box;
+    border: 1px solid var(--astro-c-text-3);
+    border-radius: 4px;
+    padding: 0 6px;
+    font-family: inherit;
+    font-size: 12px;
+    height: 22px;
+    line-height: 22px;
+    font-weight: 500;
+    transition:
+      color 0.5s,
+      border-color 0.5s;
+  }
+
+  .DocSearch-Button .DocSearch-Button-Key {
+    width: auto;
+    min-width: auto;
+    font-family: inherit;
+    font-size: 12px;
+    height: 22px;
+    padding: 0;
+    margin: 0;
+    color: var(--astro-c-text-3);
+    transition: color 0.5s;
+  }
+  .dark .DocSearch-Form {
+    background-color: var(--astro-c-bg-mute);
+  }
+
+  .DocSearch-Form {
+    background-color: #fff;
+    border: 1px solid var(--astro-c-brand);
+  }
+
+  @media (min-width: 768px) {
+    .DocSearch-Button .DocSearch-Button-Keys {
+      display: flex;
+      align-items: center;
+    }
+    .DocSearch-Button .DocSearch-Button-Placeholder {
+      display: inline-block;
+    }
+    .DocSearch-Button .DocSearch-Search-Icon {
+      top: 1px;
+      margin-right: 8px;
+      width: 14px;
+      height: 14px;
+      color: var(--astro-c-text-2);
+    }
+    .DocSearch-Button {
+      justify-content: flex-start;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      padding: 0 10px 0 12px;
+      width: 100%;
+      height: 40px;
+      background-color: var(--astro-c-bg-alt);
+    }
+
+    .DocSearch-Button:hover {
+      background: var(--astro-c-bg-alt);
+    }
+  }
+</style>

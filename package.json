@@ -12,6 +12,8 @@
   "dependencies": {
     "@astrojs/mdx": "1.1.0",
     "@astrojs/react": "3.0.2",
+    "@docsearch/css": "^3.5.2",
+    "@docsearch/js": "^3.5.2",
     "@types/mdast": "^3.0.11",
     "astro": "3.1.1",
     "astro-auto-import": "0.3.1",

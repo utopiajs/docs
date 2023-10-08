@@ -1,9 +1,11 @@
 ---
+import NavBarSearch from './NavBarSearch.astro'
 import NavAppearance from "./NavAppearance.astro";
-import NavSocialLinks from "./NavSocialLinks.astro";
+import SocialLinks from "./NavSocialLinks.astro";
 import NavBarMenu from "./NavBarMenu.astro";
 import NavBarHamburger from "./NavBarHamburger.astro";
 import NavBarScreen from "./NavBarScreen.astro";
+import Divider from "../Divider/index.astro";
 ---
 
 <header class="header">
@@ -13,12 +15,14 @@ import NavBarScreen from "./NavBarScreen.astro";
       <span class="text">Utopia</span>
     </a>
     <div class="content">
+      <NavBarSearch />
       <NavBarMenu />
+      <Divider direction="vertical" class={["nav-bar-divider"]} />
       <div class="appearance">
         <NavAppearance />
       </div>
       <div class="social-links">
-        <NavSocialLinks />
+        <SocialLinks />
       </div>
       <div class="nav-bar-hamburger-content">
         <NavBarHamburger />
@@ -82,6 +86,11 @@ import NavBarScreen from "./NavBarScreen.astro";
     justify-content: flex-end;
     flex-grow: 1;
   }
+  .header :global(.nav-bar-divider) {
+    display: none;
+    height: 24px;
+    margin-inline: 15px;
+  }
   .appearance {
     display: none;
   }
@@ -111,6 +120,12 @@ import NavBarScreen from "./NavBarScreen.astro";
   @media (min-width: 768px) {
     .container {
       padding: 0 32px;
+    }
+    .menu {
+      display: block;
+    }
+    .header :global(.nav-bar-divider) {
+      display: block;
     }
     .appearance {
       display: block;

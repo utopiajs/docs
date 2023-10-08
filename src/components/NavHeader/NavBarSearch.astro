@@ -1,0 +1,45 @@
+---
+import AlgoliaSearchBox from "./AlgoliaSearchBox.astro";
+import '@docsearch/css';
+---
+
+<div class="nav-bar-search">
+  <AlgoliaSearchBox />
+</div>
+
+<style>
+  .nav-bar-search {
+    display: flex;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .nav-bar-search {
+      flex-grow: 1;
+      padding-left: 24px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .nav-bar-search {
+      padding-left: 32px;
+    }
+  }
+
+  .dark .DocSearch-Footer {
+    border-top: 1px solid var(--vp-c-divider);
+  }
+
+  .DocSearch-Form {
+    border: 1px solid var(--vp-c-brand);
+    background-color: var(--vp-c-white);
+  }
+
+  .dark .DocSearch-Form {
+    background-color: var(--vp-c-bg-soft-mute);
+  }
+
+  .DocSearch-Screen-Icon > svg {
+    margin: auto;
+  }
+</style>

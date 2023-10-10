@@ -6,10 +6,11 @@ import { autolinkConfig } from './pulgins/rehype-autolink-config';
 import { astroCodeSnippets, codeSnippetAutoImport } from './integrations/astro-code-snippets';
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
+import siteMap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://utopiajs.space/',
+  site: 'https://www.utopiajs.github.io/docs',
   integrations: [
     AutoImport({
       imports: [codeSnippetAutoImport],
@@ -17,6 +18,11 @@ export default defineConfig({
     astroCodeSnippets(),
     react(),
     mdx(),
+    siteMap({
+      changefreq: 'weekly',
+      priority: 0.7,
+      lastmod: new Date()
+    })
   ],
   redirects: {
     '/introduction/index': '/introduction'

@@ -1,7 +1,10 @@
 ---
-import siteInfo from '../../data/siteInfo';
+import siteInfo from "../../data/siteInfo";
 const { content } = Astro.props;
-const canonicalURL = new URL(Astro.url.pathname.replace(/([^/])$/, '$1/'), Astro.site);
+const canonicalURL = new URL(
+  Astro.url.pathname.replace(/([^/])$/, "$1/"),
+  Astro.site,
+);
 ---
 
 <!-- OpenGraph Tags -->
@@ -11,6 +14,11 @@ const canonicalURL = new URL(Astro.url.pathname.replace(/([^/])$/, '$1/'), Astro
 <meta property="og:locale" content="zh-CN" />
 <meta property="og:image" content="/assets/logo-main-pure.png?v1=1" />
 <meta property="og:image:alt" content={siteInfo.imageAlt} />
-<meta name="description" property="og:description" content={content?.description ?? siteInfo.description} />
+<meta
+  name="description"
+  property="og:description"
+  content={content?.description ?? siteInfo.description}
+/>
 <meta property="og:site_name" content={siteInfo.name} />
 <meta property="og:author" content={siteInfo.author} />
+<link rel="sitemap" href="/sitemap-index.xml" />

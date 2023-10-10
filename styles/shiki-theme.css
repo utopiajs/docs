@@ -1,0 +1,24 @@
+.astro-docs [class*='language-'] pre {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 20px 0;
+  background-color: transparent;
+}
+.dark .astro-docs [class*='language-'] pre {
+  background-color: var(--astro-c-bg-soft) !important
+}
+
+.astro-docs [class*='language-'] code {
+  display: block;
+  padding: 0 24px;
+  width: fit-content;
+  min-width: 100%;
+  line-height: var(--astro-code-line-height);
+  font-size: var( --astro-code-font-size);
+  color: var(--astro-block-color);
+  transition: color 0.5s;
+}
+pre,code,kbd,smap {
+  font-family: var(--astro-font-family-mono);
+}

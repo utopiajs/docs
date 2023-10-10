@@ -10,7 +10,10 @@ import siteMap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.utopiajs.github.io/docs',
+  site: 'https://www.utopiajs.space/docs',
+  build: {
+    assetsPrefix: 'https://www.utopiajs.space/docs'
+  },
   integrations: [
     AutoImport({
       imports: [codeSnippetAutoImport],

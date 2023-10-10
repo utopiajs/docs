@@ -7,11 +7,9 @@ import { astroCodeSnippets, codeSnippetAutoImport } from './integrations/astro-c
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
 import siteMap from '@astrojs/sitemap';
-
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.utopiajs.space',
-  base: "/docs",
+  site: 'https://www.utopiajs.space/docs',
   integrations: [
     AutoImport({
       imports: [codeSnippetAutoImport],

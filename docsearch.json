@@ -4,10 +4,10 @@
   "sitemap_urls": ["https://docs.utopiajs.space/sitemap-0.xml"],
   "selectors": {
     "lvl0": {
-      "selector": "(//ul[contains(@class,'menu__list')]//a[contains(@class, 'menu__link menu__link--sublist menu__link--active')]/text() | //nav[contains(@class, 'nav-bar-menu-link')]//a[contains(@class, 'nav-bar-menu-link--active')]/text())[last()]",
+      "selector": "(//ul[contains(@class,'nav-bar-menu-link')]//a[contains(@class, 'nav-bar-menu-link--active')]/text() | //nav[contains(@class, 'nav-bar-menu-link')]//a[contains(@class, 'nav-bar-menu-link--active')]/text())[last()]",
       "type": "xpath",
       "global": true,
-      "default_value": "Documentation"
+      "default_value": "文档"
     },
     "lvl1": "header h1, .astro-docs h1",
     "lvl2": ".astro-docs h2",

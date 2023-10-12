@@ -3,9 +3,8 @@
   "start_urls": ["https://docs.utopiajs.space"],
   "sitemap_urls": ["https://docs.utopiajs.space/sitemap-0.xml"],
   "selectors": {
-    "lvl0": {
-      "selector": "(//ul[contains(@class,'nav-bar-menu-link')]//a[contains(@class, 'nav-bar-menu-link--active')]/text() | //nav[contains(@class, 'nav-bar-menu-link')]//a[contains(@class, 'nav-bar-menu-link--active')]/text())[last()]",
-      "type": "xpath",
+   "lvl0": {
+      "selector": ".nav-bar-menu-link.active",
       "global": true,
       "default_value": "文档"
     },

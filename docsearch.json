@@ -9,13 +9,13 @@
       "global": true,
       "default_value": "Documentation"
     },
-    "lvl1": "header h1, article h1",
-    "lvl2": "article h2",
-    "lvl3": "article h3",
-    "lvl4": "article h4",
-    "lvl5": "article h5, article td:first-child",
-    "lvl6": "article h6",
-    "text": "article p, article li, article td:last-child"
+    "lvl1": "header h1, .astro-docs h1",
+    "lvl2": ".astro-docs h2",
+    "lvl3": ".astro-docs h3",
+    "lvl4": ".astro-docs h4",
+    "lvl5": ".astro-docs h5, .astro-docs td:first-child",
+    "lvl6": ".astro-docs h6",
+    "text": "p"
   },
   "custom_settings": {
     "attributesForFaceting": [
